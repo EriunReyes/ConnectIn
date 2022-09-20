@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/connections.css') }}">
+</head>
+    <body>
+    <!-- NAVIGATION BAR -->
+    <div id="nav">
+        <h1 class="profile"><a href="/connections.html">Connect In</a></h1>
+        <ul class="block">
+            <li><a  class="anchor" href="#">Home</a></li>
+            <li><a  class="anchor" href="/post">Post</a></li>
+            <li><a  class="anchor" href="/dashboard">Messages</a></li>
+            <li><a  class="anchor" href="/community">Community</a></li>
+            <li><a  class="anchor" href="/api">NASA api</a></li>
+        </ul>
+        <a href="/logout" class="btn btn-primary">Logout</a>
+    </div>
+    
+        <!--FIRST CONTAINER-->
+        <div id="container">
+            <div class="background">
+                <img class="doggy" src="{{ url_for('static', filename='/images/doggy.jpg')}}"> 
+                <h1>{{user.first_name}}</h1>
+            <img class="location" src="{{ url_for('static', filename='/images/icon.png')}}">
+            <div class="ptag">
+                <h3>Solar System</h3>
+            </div>
+            <div class="ptagtwo">
+                <p>Software Engineer|Programmer</p>
+            </div>
+            <img class="setting" src="{{ url_for('static', filename='/images/settingicon.png')}}"> 
+            <a class="editprofile" href="#" onclick="editP()">edit profile</a>
+            </div>
+            <div class="layout-1">
+                <header>
+                    <p>About Me</p>
+                </header>
+                <aside>
+                    <section>
+                    <article>
+                        <p><em>I like to grow and solve problems with inlimited thoughts. 
+                        The art of solving problems is not how smart but how willigness are you to get deeper to the unlimited creativities of solutions</em></p>
+                    </article>
+                </section>
+                </aside>
+            </div>
+                <div class="layout-1">
+                        <p>Experience</p>
+                        <div>
+                            <ul class="unordered_list">
+                                <li><em> <b>Coding Dojo</b>: Full Stack Engineer</em></li>
+                                <li><em><b>Date</b> : Sep 2021- Mar 2022</em></li>
+                                <li><em><b>Front-end</b> : HTML, CSS, JS</em></li>
+                                <li><em><b>Back-End</b> : Python,MYSQL/SQL</em></li>
+                                <li><em><b>Tools</b> : Ajax, Api, Git</em></li>
+                                <li><em><b>Operating System</b> :  Linux</em></li>
+                            </ul>
+                        </div>
+                </div>
+        </div>
+        
+        
+            <!--CONNECTIONS  -->
+            <div id="sub-container">
+                <div id="layout-2">
+                    <div class="layouttwo">
+                        <p class="crequest">Connection Request<span>2</span></p>
+                        <img class="image" src="{{ url_for('static', filename='/images/icon-hiki-oregairu.jpg')}}" alt="hiki">
+                        <p class="username">Hachiman Hikigaya <button class="btn btn-primary"  onclick="remove();subtract1();add1()">Add</button><button class="btn1 btn-danger" onclick="remove();subtract1();">Cancel</button></p>
+                        <p class="sw">Software Engineer</p>
+                        
+                        <img class="image1" src="{{ url_for('static', filename='/images/icon-hyouka.jpg')}}" alt="eru">
+                        <p class="username1">Eru Chitanda <button class="btn btn-primary" onclick="remove1();subtract1();add1()">Add</button><button class="btn1 btn-danger" onclick="remove1();subtract1();">Cancel</button></p>
+                        <p class="sw1">UX/UI Graphic Design</p>
+                    
+                    </div>
+                </div>
+
+
+                <!-- MAIN TOPIC -->
+                <div id="layout-21">
+                    <div class="layouttwo1">
+                        <header class="crequest1">Main Topics</header>
+                        <main>
+                            <section>
+                                <img class="image" src="{{ url_for('static', filename='/images/akira.jpeg')}}" alt="Akira">
+                                <h3>Akira Asai <p style="color: rgb(149, 149, 226)">Post</p></h3>
+                                <article>
+                                    <p> Tomorrow will be the day that Python is gonna release the version 12.1... 
+                                        I,m so excited to be part of the Python community and improve my programming skills to the next level!
+                                        <a href="https://www.python.org/downloads/">More info here</a></p>
+                                        <div class="btn-likes">
+                                        <p class="likes">likes 0</p>
+                                        <button class="btn btn-primary" onclick="add2()"> Likes</button></p>
+
+                                        <p class="dislikes">Dislike 0</p>
+                                        <button class="btn1 btn-warning" onclick="subtract2()"> Dislike</button></p>
+                                        </div>
+                                </article>
+                            </section>
+                            
+                                <section>
+                                    <img class="image" src="{{ url_for('static', filename='/images/gojo.jpeg')}}" alt="Gojo"> 
+                                    <h3>Gojo <p style="color: rgb(149, 149, 226)">Liked</p></h3>
+                                    <article>
+                                        <p>Top frameworks roles for a Software Developer</p>
+                                        <ul>
+                                            <li>10 - CakePhP</li>
+                                            <li>9 - Lavarel</li>
+                                            <li>8 - Phalcom</li>
+                                            <li>......</li>
+                                        </ul>
+                                    </article>
+                                </section>
+                                <div class="btn-likes">
+                                    <p class="likes1">likes 0</p>
+                                    <button class="btn btn-primary" onclick="add3()">Likes</button></p>
+
+                                    <p class="dislikes1">Dislike 0</p>
+                                    <button class="btn1 btn-warning" onclick="subtract3()">Dislike</button></p>
+                                    </div>
+
+                                <section>
+                                    <img class="image" src="{{ url_for('static', filename='/images/rikka.jpg')}}" alt="Rikka"> 
+                                    <h3>Rikka Takanashi <p style="color: rgb(149, 149, 226)">Post</p></h3>
+                                    <article>
+                                        <p>Happy to annouce that I will start working with Amazon as a software engineer at Sillicon Valley!!! <b><em>#Luck</em></b>, <b><em>#Hired</em></b></p>
+                                        <img  class="amazon" src="{{ url_for('static', filename='/images/got-hired.jpg')}}" alt="hired"> 
+                                        <div class="btn-likes">
+                                            <p class="likes2">likes 0</p>
+                                            <button class="btn btn-primary" onclick="add4()">Likes</button></p>
+    
+                                            <p class="dislikes2">Dislike 0</p>
+                                            <button class="btn1 btn-warning" onclick="subtract4()">Dislike</button></p>
+                                            </div>
+                                        
+                                    </article>
+                        </main>
+                    </div>
+                </div>
+
+
+        <!-- CONNECTIONS -->
+        <div id="layout-3">
+            <div class="layoutthree">
+                <p class="connection" id="num_1">Your Connections <span>20</span></p>
+                <img src="{{ url_for('static', filename='/images/icon-boruto.jpg')}}" class="image" alt="boruto">  
+                <p class="username">Uzumaki Boruto</p>
+                <p>Data Mining <b><em> 500+ connections</em></b></p>
+                
+                    
+                <img src="{{ url_for('static', filename='/images/icon-Saiki.jpg')}}" class="image" alt="saiki">  
+                <p class="username">Kusuo Saiki </p>
+                <p>Machinge Learning Engineer <b><em> 879+ connections</em></b></p>
+                <img src="{{ url_for('static', filename='/images/icon-mob-psycho.jpg')}}" class="image" alt="kageyama">  
+                <p class="username">Shigeo kageyama </p>
+                <p>IT support <b><em> 124+ connections</em></b></p>
+                
+                <img src="{{ url_for('static', filename='/images/icon-saitama.jpg')}}" class="image" alt="saitama"> 
+                <p class="username">Saitama Hero </p>
+                <p>Applied Scientist <b><em> 970+ connections</em></b></p>
+            <div class="view">
+                <a href="" onclick="load()">View more</a> 
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer id = "footer-container">
+            <div >
+                <h1>ConnectIn</h1>
+                <p class="footer-child">
+                    Want to keep networking around? This is your chances!! <a href="https://es.linkedin.com">Click Here!</a>
+                </p>
+            </div>
+            <div>
+                <p class="footer-child">
+                    Contact us at 000-000-0000
+                </p>
+            </div>
+            <div>
+                <p class="footer-child">
+                    Also you can contact us by email: connectIn@created.com
+                </p>
+            </div>
+        </footer>
+        <script type="text/javascript" src="{{ url_for('static', filename='/js/connections.js') }}"></script>
+    </body>
+    </html>
+    

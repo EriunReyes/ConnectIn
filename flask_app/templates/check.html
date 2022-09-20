@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script language = "javascript" type="text/javascript">
+        function ajaxFunction() {
+    var ajaxRequest;
+
+    try {
+        ajaxRequest = new XMLHttpRequest();
+    } catch (e) {
+        
+    try {
+        ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (e) {
+
+    try {
+        ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+    } catch (e) {
+
+            alert("Your Browser broke!");
+            return false;
+            }
+        }
+    }
+}
+function validateUserId(){
+    ajaxFunction();
+
+    ajaxRequest.onreadystatechange = processRequest;
+
+
+if (!target) target = document.getElementById('userid');
+var url = 'validate?id=' + escape(target.value);
+
+ajaxRequest.open('GET', url, true);
+ajaxRequest.send(null);
+}
+
+function processRequest() {
+    if (req.readyState == 4){
+        if (req.status == 200){
+            var message = "All good";
+            console.log(message)
+        }
+    }
+}
+
+function setMessageUsingDOM(message){
+    var userMessageElement = document.getElementById('userIDMessage');
+    var messageText;
+
+    if (message == 'false') {
+        userMessageElement.style.color = 'red';
+        messageText = 'invalid User id';
+    } else {
+        userMessageElement.style.color = 'green';
+        messageText = 'valid User Id';
+    }
+
+    var  messageBody = document.createTextNode(messageText);
+    if (userMessageElement.childNodes[0]) {
+        userMessageElement.replaceChild(messageBody, userMessageElement.childNodes[0]);
+    } else {
+        userMessageElement.appendChild(messageBody);
+    }
+}
+    </script>
+    <div id = "userIDMessage">I'm here</div>
+    <form name = 'MyForm' action="">
+        Name: <input type="text" name = 'id' id="userid"> <br>
+        Time : <input type="text" name = 'time'>
+    </form>
+</body>
+</html>
